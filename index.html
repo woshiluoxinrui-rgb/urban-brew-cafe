@@ -17,7 +17,7 @@
 <body>
     <header class="navbar">
         <div class="logo">
-            <img src="logo.png" alt="Urban Brew Café Logo" class="logo-icon">
+            <img src="logo.webp" alt="Urban Brew Café Logo" class="logo-icon">
             <span>Urban Brew Café</span>
         </div>
         <nav>
@@ -83,8 +83,8 @@
         </div>
 
         <img class="rounded-img hover-img"
-            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80"
-            alt="Comfortable coffee shop interior" />
+            src="images/about-interior.webp"
+            alt="Comfortable coffee shop interior" loading="lazy" decoding="async">
     </section>
 
     <section class="section light why-section">
@@ -99,8 +99,8 @@
 
         <div class="why-layout">
             <div class="why-main">
-                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80"
-                    alt="Cosy café interior for students and professionals" />
+                <img src="images/why-interior.webp"
+                    alt="Cosy café interior for students and professionals" loading="lazy" decoding="async">
                 <div class="why-main-text">
                     <h3>Designed for real café moments</h3>
                     <p>A comfortable space for studying, working, meeting friends or enjoying brunch.</p>
@@ -144,8 +144,8 @@
 
         <div class="menu-feature">
             <div class="menu-feature-img">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80"
-                    alt="Coffee menu" />
+                <img src="images/menu-coffee.webp"
+                    alt="Coffee menu" loading="lazy" decoding="async">
             </div>
 
             <div class="menu-feature-text art-card">
@@ -163,13 +163,13 @@
             </div>
 
             <div class="menu-image-tile">
-                <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
-                    alt="Brunch dishes" />
+                <img src="images/brunch-dishes.webp"
+                    alt="Brunch dishes" loading="lazy" decoding="async">
             </div>
 
             <div class="menu-image-tile">
-                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80"
-                    alt="Desserts" />
+                <img src="images/desserts.webp"
+                    alt="Desserts" loading="lazy" decoding="async">
             </div>
 
             <div class="menu-tile art-card dark-card">
@@ -190,8 +190,8 @@
             </div>
 
             <div class="timeline-img">
-                <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=900&q=80"
-                    alt="Choosing coffee online" />
+                <img src="images/choose-coffee.webp"
+                    alt="Choosing coffee online" loading="lazy" decoding="async">
             </div>
 
             <div class="timeline-item art-card">
@@ -201,8 +201,8 @@
             </div>
 
             <div class="timeline-img">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-                    alt="Online booking" />
+                <img src="images/online-booking.webp"
+                    alt="Online booking" loading="lazy" decoding="async">
             </div>
 
             <div class="timeline-item art-card">
@@ -279,11 +279,11 @@
         </div>
 
         <div class="gallery-grid">
-            <img class="gallery-large" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Latte coffee at Urban Brew Café" />
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80" alt="Cosy café seating at Urban Brew Café" />
-            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Fresh brunch served at Urban Brew Café" />
-            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80" alt="Warm café counter and interior" />
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Coffee cup and café table" />
+            <img class="gallery-large" src="images/gallery-coffee.webp" alt="Latte coffee at Urban Brew Café" loading="lazy" decoding="async">
+            <img src="images/gallery-interior.webp" alt="Cosy café seating at Urban Brew Café" loading="lazy" decoding="async">
+            <img src="images/gallery-brunch.webp" alt="Fresh brunch served at Urban Brew Café" loading="lazy" decoding="async">
+            <img src="images/gallery-counter.webp" alt="Warm café counter and interior" loading="lazy" decoding="async">
+            <img src="images/gallery-table.webp" alt="Coffee cup and café table" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -343,8 +343,8 @@
         </div>
 
         <img class="hover-img"
-            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80"
-            alt="Friends enjoying coffee" />
+            src="images/booking-cafe.webp"
+            alt="Friends enjoying coffee" loading="lazy" decoding="async">
     </section>
 
     <section id="contact" class="section contact">
@@ -371,7 +371,10 @@
     <footer>
         <p>© 2026 Urban Brew Café. Premium coffee and brunch in Southwest London.</p>
     </footer>
-    <audio id="bgMusic"></audio>
+    <audio id="bgMusic" preload="metadata">
+        <source src="music/coffee-1.mp3" type="audio/mpeg">
+        <source src="coffee-1.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="floating-buttons">
         <button id="musicBtn" class="music-btn">

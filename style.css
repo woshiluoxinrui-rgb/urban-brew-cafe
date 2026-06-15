@@ -107,7 +107,7 @@ nav a:hover {
 
     background:
         linear-gradient(rgba(28, 16, 9, 0.58), rgba(28, 16, 9, 0.58)),
-        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80");
+        url("images/hero-coffee.webp");
 
     background-size: cover;
     background-position: center;
@@ -664,7 +664,7 @@ nav a:hover {
     min-height: 720px;
     background:
         linear-gradient(rgba(60, 35, 20, 0.76), rgba(60, 35, 20, 0.76)),
-        url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1600&q=80");
+        url("images/review-cafe.webp");
     background-size: cover;
     background-position: center;
     color: white;
@@ -1229,3 +1229,31 @@ footer {
     transform: translateX(0);
 }
 .fade-section{opacity:0;transform:translateY(40px);transition:all .8s ease}.fade-section.visible{opacity:1;transform:none}.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:.4s;z-index:99999}.lightbox.show{opacity:1;visibility:visible}.lightbox img{max-width:85%;max-height:85%;border-radius:20px}.toast{position:fixed;top:100px;right:30px;background:#5a3825;color:#fff;padding:14px 20px;border-radius:12px;z-index:99999;opacity:0;transition:.3s}.toast.show{opacity:1}@keyframes steam{0%{transform:translateY(20px);opacity:0}50%{opacity:.7}100%{transform:translateY(-40px);opacity:0}}.hero::after{content:"";position:absolute;left:58%;top:18%;width:60px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%);filter:blur(18px);animation:steam 4s infinite ease-in-out}
+
+/* Local performance + clearer music button feedback */
+.music-btn.playing,
+.music-btn.music-error {
+    width: 165px;
+    border-radius: 999px;
+}
+
+.music-btn.playing {
+    background: #5a3825;
+    color: #fffaf3;
+}
+
+.music-btn.music-error {
+    background: #fffaf3;
+    color: #8b5e3c;
+    border: 1px solid rgba(139, 94, 60, 0.35);
+}
+
+.music-btn.playing .music-text,
+.music-btn.music-error .music-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.gallery-grid img {
+    cursor: zoom-in;
+}

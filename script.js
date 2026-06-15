@@ -157,38 +157,77 @@ const musicText = document.querySelector(".music-text");
 const musicIcon = document.querySelector(".music-icon");
 
 const musicList = [
-    "music/coffee-1.mp3"
+    "music/coffee-1.mp3",
+    "coffee-1.mp3"
 ];
 
 let currentMusic = 0;
 let isPlaying = false;
+let musicReady = false;
 
-bgMusic.src = musicList[currentMusic];
-bgMusic.volume = 0.35;
-bgMusic.loop = true;
-
-function startMusic() {
-    bgMusic.play()
-        .then(() => {
-            isPlaying = true;
-            musicBtn.classList.add("playing");
-            musicIcon.textContent = "Ⅱ";
-            musicText.textContent = "Music On";
-        })
-        .catch(() => {
-            console.log("Autoplay was blocked. Waiting for user interaction.");
-        });
+function setMusicSource(index, loadNow = false) {
+    currentMusic = index;
+    bgMusic.src = musicList[currentMusic];
+    bgMusic.volume = 0.35;
+    bgMusic.loop = true;
+    bgMusic.preload = "metadata";
+    if (loadNow) {
+        bgMusic.load();
+    }
 }
 
-window.addEventListener("load", startMusic);
+setMusicSource(0, false);
 
-document.addEventListener("click", () => {
-    if (!isPlaying) {
-        startMusic();
+function showMusicError() {
+    isPlaying = false;
+    musicBtn.classList.remove("playing");
+    musicBtn.classList.add("music-error");
+    musicIcon.textContent = "!";
+    musicText.textContent = "Music not loaded";
+}
+
+function startMusic(sourceIndex = currentMusic) {
+    musicBtn.classList.remove("music-error");
+    musicText.textContent = "Loading...";
+
+    if (currentMusic !== sourceIndex || !bgMusic.src) {
+        setMusicSource(sourceIndex, true);
+    } else {
+        bgMusic.load();
     }
-}, { once: true });
+
+    const playPromise = bgMusic.play();
+
+    if (playPromise !== undefined) {
+        playPromise
+            .then(() => {
+                isPlaying = true;
+                musicReady = true;
+                musicBtn.classList.add("playing");
+                musicBtn.classList.remove("music-error");
+                musicIcon.textContent = "Ⅱ";
+                musicText.textContent = "Music On";
+            })
+            .catch(() => {
+                if (sourceIndex + 1 < musicList.length) {
+                    setMusicSource(sourceIndex + 1, true);
+                    startMusic(sourceIndex + 1);
+                } else {
+                    showMusicError();
+                    setTimeout(() => {
+                        if (!isPlaying) {
+                            musicBtn.classList.remove("music-error");
+                            musicIcon.textContent = "♪";
+                            musicText.textContent = "Click for Music";
+                        }
+                    }, 2500);
+                }
+            });
+    }
+}
 
 musicBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     event.stopPropagation();
 
     if (isPlaying) {
@@ -196,9 +235,17 @@ musicBtn.addEventListener("click", (event) => {
         isPlaying = false;
         musicBtn.classList.remove("playing");
         musicIcon.textContent = "♪";
-        musicText.textContent = "Coffee Music";
+        musicText.textContent = "Click for Music";
     } else {
         startMusic();
     }
 });
+
+bgMusic.addEventListener("ended", () => {
+    isPlaying = false;
+    musicBtn.classList.remove("playing");
+    musicIcon.textContent = "♪";
+    musicText.textContent = "Click for Music";
+});
+
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.15});document.querySelectorAll('section').forEach(s=>{s.classList.add('fade-section');io.observe(s)});const lb=document.getElementById('lightbox');const lbimg=document.getElementById('lightbox-img');document.querySelectorAll('.gallery-grid img').forEach(i=>i.addEventListener('click',()=>{lb.classList.add('show');lbimg.src=i.src;}));if(lb)lb.addEventListener('click',()=>lb.classList.remove('show'));const toast=document.createElement('div');toast.className='toast';document.body.appendChild(toast);if(newsletterForm){newsletterForm.addEventListener('submit',()=>{toast.textContent='✓ Successfully Subscribed';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500);});}
